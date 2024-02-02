@@ -1,13 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from './components/SignUp';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      {/* You can add a navigation bar or other components here if needed */}
-      <SignUp />
+    <div className="app">
+      <BrowserRouter>
+        <main className="content">
+          <Routes>
+            <Route path="/" element={<SignUp />} />
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
 export default App;

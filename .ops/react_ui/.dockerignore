@@ -1,0 +1,4 @@
+node_modules
+# TODO: this needs to be done locally for now, not enough memory on the droplet
+# build
+.dockerignore
