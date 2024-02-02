@@ -27,23 +27,23 @@ services:
     networks:
       - caddy
 
-#   react_ui:
-#     build:
-#       context: .
-#       dockerfile: .ops/react_ui/Dockerfile
-#       # args:
-#       #   CACHEBUST: 1
-#     env_file:
-#       - .env
-#     volumes:
-#       - ./react_ui:/react_ui
-#     ports:
-#       - "${REACT_APP_REACT_UI_PORT}:${REACT_APP_REACT_UI_PORT}"
-#     depends_on:
-#       rails_api:
-#         condition: service_started
-#     networks:
-#       - caddy
+  react_ui:
+    build:
+      context: .
+      dockerfile: .ops/react_ui/Dockerfile
+      # args:
+      #   CACHEBUST: 1
+    env_file:
+      - .env
+    volumes:
+      - ./react_ui:/react_ui
+    ports:
+      - "${REACT_APP_REACT_UI_PORT}:${REACT_APP_REACT_UI_PORT}"
+    depends_on:
+      rails_api:
+        condition: service_started
+    networks:
+      - caddy
 
 #   caddy:
 #     image: caddy/caddy:2.7.5-alpine
