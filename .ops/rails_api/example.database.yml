@@ -8,8 +8,8 @@ default: &default
 
 development:
   <<: *default
-  database: virtues_api_development
+  database: rails_api_development
 
 test:
   <<: *default
-  database: virtues_api_test
+  database: rails_api_test
