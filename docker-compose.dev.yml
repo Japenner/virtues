@@ -1,0 +1,65 @@
+version: "3.9"
+networks:
+  caddy:
+services:
+  postgres:
+    image: postgres:16.0-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./.ops/volumes/postgres:/var/lib/postgresql/data
+    networks:
+      - caddy
+
+  virtues_api:
+    build:
+      context: .
+      dockerfile: .ops/virtues_api/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./virtues_api:/virtues_api
+    ports:
+      - "${REACT_APP_VIRTUES_API_PORT}:${REACT_APP_VIRTUES_API_PORT}"
+    depends_on:
+      postgres:
+        condition: service_started
+    networks:
+      - caddy
+
+#   virtues_ui:
+#     build:
+#       context: .
+#       dockerfile: .ops/virtues_ui/Dockerfile.dev
+#       args:
+#         CACHEBUST: 1
+#     env_file:
+#       - .env
+#     volumes:
+#       - ./virtues_ui:/virtues_ui
+#     ports:
+#       - "${REACT_APP_VIRTUES_UI_PORT}:${REACT_APP_VIRTUES_UI_PORT}"
+#     depends_on:
+#       virtues_api:
+#         condition: service_started
+#     networks:
+#       - caddy
+
+#   caddy:
+#     image: caddy/caddy:2.7.5-alpine
+#     container_name: caddy-service
+#     restart: unless-stopped
+#     ports:
+#       - "80:80"
+#       - "443:443"
+#     volumes:
+#       - $PWD/.ops/caddy/Caddyfile.dev:/etc/caddy/Caddyfile
+#       - $PWD/site:/srv
+#       - caddy_data:/data
+#       - caddy_config:/config
+#     networks:
+#       - caddy
+
+# volumes:
+#   caddy_data:
+#   caddy_config:
