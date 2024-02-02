@@ -1,0 +1,17 @@
+# Docker volumes
+.ops/volumes
+
+# Environment variables
+.env
+
+# Misc
+.DS_Store
+.idea
+
+virtues_api/tmp
+virtues_api/log
+
+# TODO: this has to be built locally, not enough memory in the droplet
+# virtues_ui/build
+virtues_ui/node_modules
+virtues_ui/public/env-config.js

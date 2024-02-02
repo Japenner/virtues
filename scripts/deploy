@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+git pull
+
+# Remove postgres volume to eliminate permissions
+# issue where docker will create a new volume upon
+# building which the user will not have access to
+sudo rm -rf .ops/volumes/postgres
+
+docker-compose up -d --build
