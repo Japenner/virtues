@@ -2,7 +2,7 @@
 set -e
 
 # Remove a potentially pre-existing server.pid for Rails.
-rm -f /virtues_api/tmp/pids/server.pid
+rm -f /rails_api/tmp/pids/server.pid
 
 rails db:prepare
 

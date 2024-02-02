@@ -8,10 +8,10 @@
 .DS_Store
 .idea
 
-virtues_api/tmp
-virtues_api/log
+rails_api/tmp
+rails_api/log
 
 # TODO: this has to be built locally, not enough memory in the droplet
-# virtues_ui/build
-virtues_ui/node_modules
-virtues_ui/public/env-config.js
+# react_ui/build
+react_ui/node_modules
+react_ui/public/env-config.js

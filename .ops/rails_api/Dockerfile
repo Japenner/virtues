@@ -14,13 +14,13 @@ RUN apt install -y \
   yarn
 
 # Prepare working directory.
-WORKDIR /virtues_api
-COPY ./virtues_api /virtues_api
+WORKDIR /rails_api
+COPY ./rails_api /rails_api
 RUN gem install bundler
 RUN bundle install
 
 # Configure endpoint.
-COPY ./.ops/virtues_api/entrypoint.sh /usr/bin/
+COPY ./.ops/rails_api/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3001
