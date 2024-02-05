@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignUp from './components/SignUp';
+import LandingPage from './scenes/pages/Landing/LandingPage';
 import VirtuesPage from './scenes/pages/Virtues/VirtuesPage';
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
       <BrowserRouter>
         <main className="content">
           <Routes>
-          <Route path="/" element={<SignUp />} />
+          <Route path="/" element={<LandingPage />} />
           <Route path="/virtues" element={<VirtuesPage />} />
           </Routes>
         </main>
