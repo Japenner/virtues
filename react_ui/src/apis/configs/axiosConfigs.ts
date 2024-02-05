@@ -4,8 +4,7 @@ import axios from "axios";
 
 export const api = axios.create({
   withCredentials: true,
-  // @ts-ignore
-  baseURL: window._env_.REACT_APP_API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
 });
 
 // defining a custom error handler for all APIs

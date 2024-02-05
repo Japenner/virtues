@@ -19,6 +19,9 @@ COPY ./rails_api /rails_api
 RUN gem install bundler
 RUN bundle install
 
+# copy over dotenv file for configurations
+COPY ./.env ./rails_api/.env
+
 # Configure endpoint.
 COPY ./.ops/rails_api/entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh

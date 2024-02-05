@@ -10,6 +10,9 @@ ENV PATH /react_ui/node_modules/.bin:$PATH
 # copy over required files
 COPY ./react_ui /react_ui
 
+# copy over dotenv file for configurations
+COPY ./.env ./react_ui/.env
+
 # install app dependencies
 RUN yarn install
 
